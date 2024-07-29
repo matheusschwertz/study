@@ -1,44 +1,72 @@
-Neste módulo você irá trabalhar nas seguintes configurações:
+# Configurações e Comandos
 
-1.Comando para rearm - Windows
+Neste módulo, você irá trabalhar nas seguintes configurações e comandos:
 
-2.Baixar ISO Windows 10 – Windows
+## 1. Comando para Rearm - Windows
 
-3.Criar máquina Hyper-V - Hyper-V - Realizando a criação das partições de forma correta
+- **Comando:** `slmgr -rearm`
+- **Descrição:** Remove a mensagem de que o Windows está expirado. É possível rodar o rearm até 2 vezes, permitindo um total de 180 dias de licença trial.
 
-4.Adicionar máquina no domínio – AD
+## 2. Baixar ISO Windows 10 – Windows
 
-5.Validar lease – DHCP
+- **Descrição:** Baixe a ISO do Windows 10 diretamente do site oficial da Microsoft ou de uma fonte confiável.
 
-6.Criar reserva – DHCP
+## 3. Criar Máquina Hyper-V - Hyper-V
 
-7.Criar regra de bloqueio – DHCP
+- **Descrição:** Realize a criação das partições de forma correta ao configurar uma nova máquina virtual no Hyper-V.
 
-8.Criar range de exclusão – DHCP
+## 4. Adicionar Máquina no Domínio – AD
 
-9.Ipconfig /release – DHCP
+- **Descrição:** Inclua a máquina criada no domínio Active Directory.
 
-10.Ipconfig /renew – DHCP
+## 5. Validar Lease – DHCP
 
-11.Ipconfig /flushdns – DNS
+- **Descrição:** Verifique as concessões de IP no servidor DHCP para garantir que os endereços IP estejam sendo distribuídos corretamente.
 
-12.Ipconfig /registerdns – DNS
+## 6. Criar Reserva – DHCP
 
-13.Criar um registro de DNS alternativo – DNS
+- **Descrição:** Configure uma reserva no servidor DHCP para garantir que um endereço IP específico seja sempre atribuído a um dispositivo específico.
 
-14.Arquivo Hosts - Windows/DNS
+## 7. Criar Regra de Bloqueio – DHCP
 
-15.Logon Hours – AD
+- **Descrição:** Crie regras para bloquear determinados endereços IP ou dispositivos no servidor DHCP.
 
-16.Logon Computer – AD
+## 8. Criar Range de Exclusão – DHCP
 
-- Comandos: 
+- **Descrição:** Defina um intervalo de IPs que não serão atribuídos pelo servidor DHCP.
 
-> slmgr -rearm (remove a mensagem de que o windows está expirado) é possível rodar 2 vezes o rearm (180 dias de licença trial)
+## 9. `ipconfig /release` – DHCP
 
-> ipconfig /all (trazer todas as configurações de rede existentes) 
+- **Descrição:** Libera o endereço IP atualmente atribuído ao adaptador de rede pelo servidor DHCP. Isso "desconecta" o IP atual, tornando-o disponível para outros dispositivos.
 
-> ipconfig /release – DHCP - limpar as configurações do DHCP
+## 10. `ipconfig /renew` – DHCP
 
-> ipconfig /renew – DHCP - renovar as configurações do DHCP
+- **Descrição:** Solicita um novo endereço IP ao servidor DHCP após usar o comando `/release`. Renova a concessão do IP para o adaptador de rede.
 
+## 11. `ipconfig /flushdns` – DNS
+
+- **Descrição:** Limpa o cache do resolvedor DNS. Apaga as informações de cache, forçando uma nova resolução DNS para os próximos nomes de domínio acessados.
+
+## 12. `ipconfig /registerdns` – DNS
+
+- **Descrição:** Solicita ao cliente de DNS que registre ou atualize o nome do computador e o endereço IP atual com o servidor DNS. Ajuda a resolver problemas de resolução de nomes.
+
+## 13. Criar um Registro de DNS Alternativo – DNS
+
+- **Descrição:** Configure registros DNS alternativos para garantir que o nome do computador possa ser resolvido corretamente por diferentes servidores DNS.
+
+## 14. Arquivo Hosts - Windows/DNS
+
+- **Descrição:** Edite o arquivo `hosts` no Windows para mapear endereços IP a nomes de domínio localmente.
+
+## 15. Logon Hours – AD
+
+- **Descrição:** Configure as horas em que os usuários podem fazer logon no Active Directory.
+
+## 16. Logon Computer – AD
+
+- **Descrição:** Configure as máquinas específicas nas quais os usuários podem fazer logon no Active Directory.
+
+---
+
+Esses comandos e configurações são frequentemente usados para solucionar problemas de rede e DNS em sistemas Windows.
